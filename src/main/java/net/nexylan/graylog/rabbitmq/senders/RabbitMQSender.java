@@ -89,8 +89,8 @@ public class RabbitMQSender implements Sender {
             e.printStackTrace();
         }
 
-        try {
-            this.channel.queueDeclare(this.queue, false, this.durable, false, null);
+        try {            
+            this.channel.queueDeclare(this.queue, this.durable, false, false, null);
             LOG.info("[RabbitMQ] The queue have been successfully created.");
         } catch (IOException e) {
             LOG.error("[RabbitMQ] Impossible to declare the queue.");
